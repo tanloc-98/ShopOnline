@@ -209,7 +209,7 @@ function  submitRegister() {
         let password = $('#password').val()
         let link = "/shop/register";
         $.post(link, {'name': name, 'username': account, 'password': password},function(data){
-            console.log(data)
+            swal ("Register success","Enter To Continue!","success")
         })
     })
 }

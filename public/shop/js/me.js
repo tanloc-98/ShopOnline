@@ -23,7 +23,6 @@ $(document).ready(function(){
     submitCodeCheckOrders()
     signUp()
     renderFavorite()
-    hanldeAddFavorite()
     submitRegister()
 })
 
