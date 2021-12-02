@@ -2,7 +2,8 @@ const util  = require('util');
 const notify = require(__path_configs + 'notify');
 
 const options = {
-    username: {min: 3, max: 10},
+    username: {min: 1, max: 10},
+    password: {min: 1, max: 10},
 }
 
 module.exports = {
