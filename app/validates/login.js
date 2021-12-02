@@ -3,7 +3,7 @@ const notify = require(__path_configs + 'notify');
 
 const options = {
     username: {min: 1, max: 10},
-    password: {min: 1, max: 10},
+    // password: {min: 1, max: 10},
 }
 
 module.exports = {
@@ -12,8 +12,8 @@ module.exports = {
         req.checkBody('username', util.format(notify.ERROR_NAME, options.username.min, options.username.max) )
             .isLength({ min: options.username.min, max: options.username.max })
 
-        // password
-        req.checkBody('password', util.format(notify.ERROR_NAME, options.password.min, options.password.max))
-            .isInt({gt: options.password.min, lt: options.password.max});
+        // // password
+        // req.checkBody('password', util.format(notify.ERROR_NAME, options.password.min, options.password.max))
+        //     .isInt({gt: options.password.min, lt: options.password.max});
     }
 }
