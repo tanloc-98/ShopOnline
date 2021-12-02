@@ -1,0 +1,346 @@
+<%
+    const linkFolderSlider = 'uploads/slider/';
+    const linkFolderArticle = 'uploads/article/';
+    const linkFolderBranch = 'uploads/branch/';
+    const linkFolderBanner = 'uploads/banner/';
+%>
+<% include ./../../helpers/colorItem %>
+<% include ./../../helpers/sizeItem %>
+<% include ./../../helpers/imgArticle %>
+<% include ./../../helpers/spanSubmit %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb bg-blue">
+              
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-lg-9">
+                    <div class="row shop-item-page">
+                        <div class="col-sm-4 col-md-5 fix-height">
+                            <div class="item-gallery float-block">
+                                <div class="owl-carousel image">                              
+                                    <%- helperImgArticle(itemById.thumbs,linkFolderArticle) %>
+                                </div>
+
+                                <div class="owl-carousel image-nav hidden-xs">
+                                     <%- helperImgArticle(itemById.thumbs,linkFolderArticle) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 col-md-7 get-height">
+                            <div class="row item-header">
+                                <div class="col-md-7">
+                                    <h1 class="comp-header st-12 text-uppercase text-blue">
+                                        <%= itemById.name %>
+                                        <span class="text-dark">
+                                            <%= itemById.category.name %>
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="divider-dotted"></div>
+                            <div class="row price-pan">
+                                <div class="col-md-12">
+                                    <span class="head">Price</span>
+                                    <span class="price">
+                                        <span class="price">
+                                            <span class="curr">$</span>
+                                            <%= itemById.price %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="rate">
+                                        <div class="rate-info">
+                                            <span class="head">Rating</span> 
+                                            <span class="post-head"> 24 members rate it</span>
+                                        </div>
+                                        <ul class="stars">
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button id="<%= itemById.id %>" class="favorite btn-material">
+                                        <i class="icofont icofont-star"></i>
+                                        Add to favorite
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="divider-dotted"></div>
+                            <div class="row set-panel">
+                                <div class="col-md-6">
+                                    <span class="head">Size</span>
+                                    <ul class="size-panel">
+                                        <%- helperSizeArticle(itemById.size)%>
+                                    </ul>
+                                    <span class="error_size"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="head">Color</span>
+                                    <div class="color-selecting">
+                                        <ul class="selecter selecter_article">
+                                          <%- helperColorArticle(itemById.color)%>
+                                        </ul>
+                                        <span class="error_color"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="buy-btn-panel bg-blue">
+                                        <div class="cart-icon">
+                                            <i class="icofont icofont-basket"></i>
+                                        </div>
+                                        <div class="btns-wrap btn-material bg-white">
+                                            <a href="#">Buy now</a>
+                                            <a class="text-blue" id="submitItem">Put in cart</a>
+                                            <input type="text" name="size" value="" hidden/>
+                                            <input type="text" name="color" value="" hidden/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row description">
+                                <div class="col-xs-12">
+                                    <h2 class="header">
+                                        Description:
+                                    </h2>
+                                        <%- itemById.content %>
+                                </div>
+                            </div>
+                            <div class="row features-pan hidden-xs">
+                                <div class="col-xs-12">
+                                    <ul class="row features-list text-center">
+                                        <li class="col-md-4">
+                                            <i class="icofont icofont-shield"></i>
+                                            <span >24 days. Money Back Guarantee</span>
+                                        </li>
+                                        <li class="col-md-4">
+                                            <i class="icofont icofont-ship"></i>
+                                            <span>Free shipping</span>
+                                        </li>
+                                        <li class="col-md-4">
+                                            <i class="icofont icofont-hand"></i>
+                                            <span>Free help and setup</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row shop_related">
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                        <h1 class="shop_related_header">Related Products</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="owl-carousel owl-default related nav-top-left">
+                                        <% itemsRelated.forEach( item => { %>
+                                            <div class="shop-item hover-sdw timer"
+                                                    data-timer-date="2018, 2, 5, 0, 0, 0">
+                                                <div class="wrap">
+                                                    <div class="body">
+                                                        <div class="comp-header st-4 text-uppercase">
+                                                            <%= item.name %>
+                                                            <span>
+                                                                <%= item.category.name %>
+                                                            </span>
+                                                            <div class="rate">
+                                                                <ul class="stars">
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                </ul>
+                                                                <div class="rate-info">
+                                                                    24 members rate it
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img class="hover" src="<%= linkFolderArticle + item.thumbs[0]%>" alt="">
+                                                            <img class="main" src="<%= linkFolderArticle + item.thumbs[1]%>" alt="">
+                                                        </div>
+                                                        <div class="caption">
+                                                            <div class="rate">
+                                                                <ul class="stars">
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li class="active">
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="icofont icofont-star"></i>
+                                                                    </li>
+                                                                </ul>
+                                                                <div class="rate-info">
+                                                                    24 members
+                                                                    <span>like it</span>
+                                                                </div>
+                                                            </div>
+                                                                <div class="info_item">
+                                                                    <div class="color-selecting">   
+                                                                        Color :<ul class="selecter"> <%- helperColorItem(item.id,item.color,'feature')%></ul>
+                                                                        <span id="<%= item.id %>-color-feature" class="error_color_item"></span>
+                                                                    </div>
+                                                                    <div class="info_size">
+                                                                    Size : <ul class="size_item"><%- helperSizeItem(item.id,item.size,'feature') %></ul>
+                                                                    <span id="<%= item.id %>-size-feature" class="error_size_item"></span>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="info">
+                                                        <%- helperSpanSubmitItem(item.id,item.price,item.slug,'feature')%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-lg col-md-4 col-lg-3 asside">
+                     <div class="ads_banner">
+                        <% bannerItem.forEach(item =>{ %>
+                        <img src="<%= linkFolderBanner + item.thumb %>" >
+                        <% }) %>
+                    </div>
+                    <div class="col-12 features_items">
+                        <h4>Features</h4>
+                        <% featuresItems.forEach( item =>{ %>
+                            <div class="features_items_article">
+                                <img src="<%= linkFolderArticle + item.thumbs[0] %>" alt="">
+                                <span class="name_item"><%= item.name %></span>
+                                <span class="category_name_item">(<%= item.category.name %>)</span>
+                                <p class="price_item">Price: $ <span><%= item.price %></span></p>
+                                <p class="title_item"><%= item.title %></p>
+                                <a href="/shop/<%= item.slug %>/<%= item.id %>" class="view_item">VIEW MORE</a>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./../../elements/subscribe %>
+
+<div class="container block">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    25 789
+                    <span>items sold</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    1 580
+                    <span>happy customers</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    987
+                    <span>items in store</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    12 580
+                    <span>what else</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">        
+    <div class="row">
+        <div class="clearfix">
+            <div class="substrate-wrap">
+                <div class="substrate parallax-block"
+                        data-speed-direction=".1"
+                        data-default-pos="-200"
+                        data-parallax-block="true">
+                    
+                    <div class="text text-dark">
+                        BRANDS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="container space-bottom">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="owl-carousel owl-default brands nav-bottom-right">
+                <% bwBranchItems.forEach( item =>{ %>
+                    <div class="img-item">
+                        <div class="wrap">
+                            <img src="<%= linkFolderBranch + item.thumb %>" alt="">
+                        </div>
+                    </div>
+                <% }) %> 
+            </div>
+        </div>
+    </div>
+</div>

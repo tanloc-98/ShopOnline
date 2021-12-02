@@ -1,0 +1,22 @@
+<% 
+     helperColorItem = (id,colors,display) => { 
+        let colorItem = colors.split(',');
+        let xml = '';
+        colorItem.forEach( color => {
+            xml += `
+                <li class="${color}" id="${id}-${display}" onclick="selectColor('${id}','${color}','${display}')" ></li>
+            `
+        })
+        return xml;
+    } 
+    helperColorArticle = (colors) => { 
+        let colorItem = colors.split(',');
+        let xml = '';
+        colorItem.forEach( color => {
+            xml += `
+                <li class="${color}"></li>
+            `
+        })
+        return xml;
+    } 
+%>

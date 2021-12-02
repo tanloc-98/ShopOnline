@@ -1,0 +1,206 @@
+<%
+    const linkFolderSlider = 'uploads/slider/';
+    const linkFolderArticle = 'uploads/article/';
+    const linkFolderBranch = 'uploads/branch/';
+    const linkFolderBanner = 'uploads/banner/';
+%>
+<% include ./../../helpers/colorItem %>
+<% include ./../../helpers/sizeItem %>
+<% include ./../../helpers/imgArticle %>
+<% include ./../../helpers/spanSubmit %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb bg-blue">
+               
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row block none-padding-top">
+        <div class="col-xs-12">
+            <ul class="steps row">
+                <li class="col-xs-12 col-sm-4 col-md-4 col-lg-3"">
+                    <div class="icon number bg-blue">
+                        1
+                    </div>
+                    <span>
+                        Confirm 
+                    </span>
+                    products list
+                    <span class="dir-icon hidden-xs">
+                        <i class="icofont icofont-stylish-right text-yellow"></i>
+                    </span>
+                </li>
+                <li class="hidden-xs col-sm-4 col-md-4 col-lg-3">
+                    <div class="icon number bg-blue">
+                        2
+                    </div>
+                    <span>
+                        Enter
+                    </span>
+                    your address
+                    
+                    <span class="dir-icon">
+                        <i class="icofont icofont-stylish-right"></i>
+                    </span>
+                </li>
+                <li class="hidden-xs col-sm-4 col-md-4 col-lg-3">
+                    <div class="icon number bg-grey">
+                        3
+                    </div>
+                    <span>
+                        Select
+                    </span>
+                    payment method
+                    
+                    <span class="dir-icon hidden-sm hidden-md">
+                        <i class="icofont icofont-stylish-right"></i>
+                    </span>
+                </li>
+                <li class="hidden-xs col-lg-3 hidden-sm hidden-md">
+                    <div class="icon number bg-grey">
+                        4
+                    </div>
+                    <span>
+                        Confirm
+                    </span>
+                    your order
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row block none-padding-top">
+        <div class="col-xs-12 col-md-8 col-lg-9 get-height">
+            <div class="sdw-block">
+                <div class="wrap bg-white">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="headingTwo">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                <span class="panel-indicator"></span>
+                                                Enter Your Address
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse in">
+                                         <div class="panel-body">
+                                            <form class="form-horizontal">
+                                                <div class="form-group pd-none">
+                                                    <label for="route" class="col-sm-3 control-label text-darkness">Full Name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="fullName" class="form-control">
+                                                        <span class="fullname_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="postal_code" class="col-sm-3 control-label text-darkness">Phone Number</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="phone" class="form-control">
+                                                        <span class="phone_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="postal_code" class="col-sm-3 control-label text-darkness">Email</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="email" class="form-control">
+                                                        <span class="email_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="route" class="col-sm-3 control-label text-darkness">Street</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="street" class="form-control">
+                                                        <span class="street_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="locality" class="col-sm-3 control-label text-darkness">City</label>
+                                                    <div class="col-sm-8">
+                                                       <input type="text" name="city" class="form-control">
+                                                       <span class="city_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="administrative_area_level_1" class="col-sm-3 control-label text-darkness">State</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="state" class="form-control">
+                                                        <span class="state_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pd-none">
+                                                    <label for="country" class="col-sm-3 control-label text-darkness">Country</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="country" class="form-control">
+                                                        <span class="country_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="deliveryComp" class="col-sm-3 control-label text-darkness">Select a delivery method</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="deliveryComp" class="fee_shipping" data-placeholder="Delivery is not selected"></select>
+                                                        <span class="fee_err"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group padding">
+                                                    <label class="col-sm-3 control-label pd-none">Cost delivery:</label>
+                                                    <div class="col-sm-9">
+                                                        <span class="text fee">
+                                                            $ <b>0</b>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-3 col-sm-8">
+                                                        <span class="sdw-wrap">
+                                                            <a href="shop/cart-products" class="sdw-hover btn btn-material btn-yellow btn-lg ripple-cont">Go to prev step</a>
+                                                            <span class="sdw"></span>
+                                                        </span>
+                                                        <span class="sdw-wrap">
+                                                            <a id="getAddress" class="sdw-hover btn btn-material btn-yellow btn-lg ripple-cont">Go to next step</a>
+                                                            <span class="sdw"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-md-4 col-lg-3 fix-height asside hidden-xs hidden-sm">
+            <div class="product-list float-block">
+                <div class="wrap bg-white">
+                    <div class="asside-nav bg-grey-lightness hidden-xs">
+                        <div class="header text-uppercase text-white bg-blue">
+                            Cart Products
+                        </div>
+                        
+                        <ul class="list-2 list_cart">
+                          
+                        </ul>
+                        
+                        <div class="asside-btn text-center">
+                            <a href="#" class="btn btn-primary btn-material"> 
+                                <span class="body">View order</span>
+                                <i class="icon icofont icofont-check-circled"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>

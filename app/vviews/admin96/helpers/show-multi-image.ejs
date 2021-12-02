@@ -1,0 +1,15 @@
+<% 
+    showMultiImageHelper = (folder, thumbs) => {
+
+        let xml ='';
+
+        if(thumbs){
+            thumbs.forEach(img => {
+                xml += `<li><img src="${folder}${img}" class="showImagesForm">
+                    <a class=\"removeFile\" data-fileid=\"" + fileId + "\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></li>`;
+            })
+        }
+        return `<input type="hidden" name="valueImg" value="${thumbs}" id="valueImg"/>
+                ${xml}`;
+    }
+%>

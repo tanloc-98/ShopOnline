@@ -1,0 +1,63 @@
+<div class="wrap bg-white">
+        <h3 class="header text-uppercase">Search</h3>
+        <div class="search">
+            <input name="search" value=""/>
+            <span id="search_items"><i class="icofont icofont-ui-search"></i></span>
+        </div>
+    <h3 class="header text-uppercase">Category</h3>
+    <div class="category">
+        <ul class="category_list">
+            <% itemsCategoryProduct.forEach(item =>{ %>
+                <li><a onClick="getCategoryItems('<%= item.slug %>')"> <%= item.name %> </a></li>
+            <% }) %>
+        </ul>
+    </div>
+    <div class="divider"></div>
+    <h3 class="header text-uppercase">Color</h3>
+    <div class="color-selecting">
+        <ul class="selecter selecter_color">
+            <li class="gray"></li>
+            <li class="black"></li>
+            <li class="red active"></li>
+            <li class="purp"></li>
+            <li class="blue"></li>
+            <li class="aqua"></li>
+            <li class="green"></li>
+            <li class="yellow"></li>
+        </ul>
+    </div>
+    <div class="sizer">
+        <h3 class="header text-uppercase">Size</h3>
+        <ul class="selecter selecter_size">
+            <li>S</li>
+            <li>M</li>
+            <li>L</li>
+            <li class="active">XL</li>
+            <li>XXL</li>
+        </ul>
+        <ul class="selecter selecter_size">
+            <li>35</li>
+            <li>36</li>
+            <li>37</li>
+            <li>38</li>
+            <li>39</li>
+            <li>40</li>
+            <li>41</li>
+        </ul>
+    </div>
+   
+    <h3 class="header text-uppercase">Price</h3>
+    <div class="price-slider"
+            data-price-first="75"
+            data-price-last="423"
+            data-price-max="850"
+            data-price-curr="$">
+        <div class="range"></div>
+        <div class="amoutn">
+            <input type="text" name="firstPrice" class="first" readonly>
+            <input type="text" name="lastPrice" class="last" readonly>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <button class="btn btn-search btn-material btn-primary">Search</button>
+</div>

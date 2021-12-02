@@ -1,0 +1,40 @@
+<% 
+    helperRenderOrder = (cart,codePromo,lastPrice,infoCutomer) => {
+        let cartItems = JSON.parse(cart)
+        let infoCutomers = JSON.parse(infoCutomer)
+        let xmlProducts = '';
+        let index = 0
+        let totalsQuantity = 0
+        cartItems.forEach(item =>{
+            index++
+            totalsQuantity += item.info.quantity
+            xmlProducts += `
+            <div class="orders">
+                <p>${index}</p>
+                <ul>
+                    <li class="name_oders">Name: <span>${item.info.name}</span></li>
+                    <li> Color: <span>${item.color}</span></li>
+                    <li>Size: <span>${item.size}</span> </li>
+                    <li> Price: <span>$ ${item.info.price}</span></li>
+                    <li> Quanity: <span>${item.info.quantity}</span></li>
+                </ul>
+            </div>
+            `
+        })
+        xmlProducts += `
+            <div class="code">
+                <ul>
+                    <li> Promotion Code : <span>${codePromo}</span></li>
+                    <li> Ship Fee: <span>$ ${infoCutomers.feeShip}</span></li>
+                </ul>
+            </div>
+            <div class="results">
+                <ul>
+                    <li> Totals Price: <span>$ ${lastPrice}</span></li>
+                    <li> Totals Quantity: <span>${totalsQuantity}</span></li>
+                </ul>
+            </div>
+        `
+        return xmlProducts;
+    } 
+%>

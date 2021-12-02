@@ -1,0 +1,34 @@
+<% include ./../../../helpers/selectbox %>
+<% include ./../../../helpers/input %>
+<% include ./../../../helpers/input-color-tag %>
+<% include ./../../../helpers/image %>
+<% include ./../../../helpers/textarea %>
+<% include ./../../../helpers/input-multi-image %>
+<% include ./../../../helpers/show-multi-image %>
+<% include ./../../../helpers/formBody %>
+
+<% 
+	let linkIndex = '/adminCCC/shop/fee-shipping/'
+	let elementsForm = [
+		{ for: 'method', label: 'Delivery method :', input: inputHelper('method', item.method ) },
+		{ for: 'price', label: 'Price :', input: inputHelper('price', item.price ) },
+		{ for: 'status', label: 'Status :', input: selectboxHelper('status', systemConfig.status_value, item.status) },
+	];
+
+	let xhtmlForm = formBodyHelper(elementsForm);
+%>
+<div class="errors-notify"></div>
+<div class="card card-info card-outline">
+	<form action="<%= linkIndex %>/save" method="POST" class="mb-0" >
+		<div class="card-body">
+			<%- xhtmlForm %>
+		</div>
+		<div class="card-footer">
+			<div class="col-12 col-sm-8 offset-sm-2">
+				<input class="form-control" name="id" value="<%= item.id %>" type="hidden" >
+				<button type="submit" id="submitDelivery" class="btn btn-sm btn-success mr-1"> Submit</button>
+				<a href="<%= linkIndex %>" class="btn btn-sm btn-danger mr-1"> Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>

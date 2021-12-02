@@ -1,0 +1,13 @@
+<% 
+     helperImgArticle = (thumbs,linkUploads) => { 
+        let xml = ``;
+
+        thumbs.forEach( thumb => {
+            xml += `<div class="item">
+                        <img src="${linkFolderArticle + thumb}" alt="">
+                    </div>
+            `
+        })
+        return `${xml}`;
+    } 
+%>

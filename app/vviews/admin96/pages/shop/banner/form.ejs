@@ -1,0 +1,40 @@
+<% include ./../../../helpers/selectbox %>
+<% include ./../../../helpers/input %>
+<% include ./../../../helpers/image %>
+<% include ./../../../helpers/textarea %>
+<% include ./../../../helpers/formBody %>
+<% 
+	const controllerName = 'banner';
+	const linkPrefix = systemConfig.prefixAdmin + `/shop/${controllerName}/`;
+	const folder = `uploads/${controllerName}/`;
+	let elementsForm = [
+		{ for: 'name', label: 'Branch Name', input: inputHelper('name', item.name ) },
+		{ for: 'ordering', label: 'Ordering', input: inputHelper('ordering', item.ordering ) },
+		{ for: 'status', label: 'Status', input: selectboxHelper('status', systemConfig.status_value, item.status) },
+		{ for: 'thumb', label: 'Choose image', input: inputHelper('thumb', item.thumb,{},'thumb' ) },
+		{ for: 'preview_image', label: 'Preview image', input: imageHelper(folder, item.thumb) },
+	];
+
+	let xhtmlForm = formBodyHelper(elementsForm);
+%>
+
+<div class="errors-notify"></div>
+<div class="card card-info card-outline">
+	<form action="#" method="POST" class="mb-0" enctype="multipart/form-data" name="form-upload" id="submitForm">
+		<div class="card-body">
+			<%- xhtmlForm %>
+		</div>
+		<div class="card-footer">
+			<div class="col-12 col-sm-8 offset-sm-2">
+				<input class="form-control" name="id" value="<%= item.id %>" type="hidden" >
+				<input name="image_old" value="<%= item.thumb %>" type="hidden" >
+				<input class="form-control" id="linkPost" value="<%= linkPrefix %>" type="hidden" >
+				<button type="submit" id="btnSubmit" class="btn btn-sm btn-success mr-1"> Submit</button>
+				<a href="<%= linkPrefix %>" class="btn btn-sm btn-danger mr-1"> Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	CKEDITOR.replace( 'content' );
+</script>

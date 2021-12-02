@@ -1,0 +1,112 @@
+<%
+    const linkFolderSlider = 'uploads/slider/';
+    const linkFolderArticle = 'uploads/article/';
+    const linkFolderBranch = 'uploads/branch/';
+    const linkFolderBanner = 'uploads/banner/';
+%>
+<% include ./../../helpers/colorItem %>
+<% include ./../../helpers/sizeItem %>
+<% include ./../../helpers/imgArticle %>
+<% include ./../../helpers/spanSubmit %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb bg-blue">
+               
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+        
+        <!-- 
+        CONTENT
+        =============================================== -->
+        <div class="row block none-padding-top">
+            
+            <div class="col-xs-12">
+                <div class="sdw-block">
+                    <div class="wrap bg-white">
+                        
+                        <!-- Authirize form -->
+                        <div class="row head-block">
+                            
+                            <!-- Header & nav -->
+                            <div class="col-md-12">
+                                
+                                <!-- Header -->
+                                <h1 class="header text-uppercase">
+                                    New user
+                                    <span>
+                                        registration
+                                    </span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-3">
+                                <p class="text">
+                                    Register will get New Promotion Codes 
+                                </p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" id="profileInfo">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#bankTransrerColl">
+                                                    <span class="panel-indicator"></span>
+                                                    Profile info
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="bankTransrerColl" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <form class="form-horizontal" id="register">
+                                                    <div class="form-group pd-none">
+                                                        <label for="frName" class="col-sm-3 control-label text-darkness">Your name</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text"
+                                                                    class="form-control"
+                                                                    id="name_register">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group pd-none">
+                                                        <label for="slLogin" class="col-sm-3 control-label text-darkness">Account login</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text"
+                                                                    class="form-control"
+                                                                    id="account_register">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group pd-none">
+                                                        <label for="password" class="col-sm-3 control-label text-darkness">Enter your password</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="password" class="form-control" id="password">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group pd-none">
+                                                        <label for="password" class="col-sm-3 control-label text-darkness">Choose Avatar</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="file" class="form-control" id="avatar">
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-primary register">Register</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- END: CONTENT -->
+        
+    </div>

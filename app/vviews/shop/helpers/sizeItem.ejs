@@ -1,0 +1,22 @@
+<% 
+     helperSizeItem = (id,size,display) => {
+        let sizeItem = size.split(',');
+        let xml = '';
+        sizeItem.forEach( size => {
+            xml += `
+                <li id="${id}-${display}-${size}" onclick="selectSize('${id}','${size}','${display}')">${size.toUpperCase()}</li>
+            `
+        })
+        return xml;
+    } 
+    helperSizeArticle = (size) => {
+        let sizeItem = size.split(',');
+        let xml = '';
+        sizeItem.forEach( size => {
+            xml += `
+                <li>${size.toUpperCase()}</li>
+            `
+        })
+        return xml;
+    } 
+%>

@@ -1,0 +1,18 @@
+<% 
+    showMultiImageLayoutHelper = (folder,thumbs) => {
+		let xml ='';
+		let noImage = 'image-available.png';
+
+		if(thumbs == ""){
+			xml = `<img src="${folder + noImage}"  class="imgLayoutInfo"/>`
+		}else{
+			for(i = 0; i < thumbs.length; i++){
+				let item = thumbs[i];
+
+				xml += `<img src="${folder + item}"  class="imgLayoutInfo"/>`
+			}
+		}
+
+        return `<div class="showImgMuti">${xml}</div>`;
+    }
+%>

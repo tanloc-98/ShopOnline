@@ -1,0 +1,37 @@
+<% include ./../../helpers/format-date %>
+<% include ./../../helpers/format-summary %>
+
+<% const folder_uploads = 'uploads/article/'; %>
+
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    <% itemsArticle.forEach( item =>{ %>
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="img_category rounded-0" src="<%= folder_uploads + item.thumb %>" alt="">
+                            </div>
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="/tin-tuc/<%= item.slug %>-a">
+                                    <h2><%= item.name %></h2>
+                                </a>
+                                <ul class="blog-info-link">
+                                    <li><i class="fa fa-user"></i> <%= item.created.user_name %></li>
+                                    <li><i class="fa fa-clock"></i> <%- formatDate(item.created.time) %></li>
+                                    <li><%= item.category.name %></li>
+                                    
+                                </ul>
+                                <br>
+                                <p><%- formatSummary(item.content) %> ...</p>    
+                            </div>
+                        </article>
+                    <% }) %>
+                </div>
+            </div>
+            
+			<% include ./../../elements/sildebar %>
+        </div>
+    </div>
+</section>

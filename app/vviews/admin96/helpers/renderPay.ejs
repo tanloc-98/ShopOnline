@@ -1,0 +1,43 @@
+<% 
+    helperRenderPayMethod = (item) => {
+        let methodPay = item.method;
+        let infoCutomers = JSON.parse(item.infoCutomer)
+        let cardCustomer = {}
+       
+        let xml = ` 
+                <div class="customer">
+                    <p>Name: <span>${infoCutomers.fullName}</span></p>
+                    <p>Email: <span>${infoCutomers.email}</span></p>
+                    <p>Phone: <span>${infoCutomers.phone}</span></p>
+                    <p>Address: <span>${infoCutomers.street} , ${infoCutomers.state} , ${infoCutomers.city} , ${infoCutomers.country}</span></p>
+                </div>`
+        if(methodPay === 'bank'){
+            xml += `
+                <p class="pay_method">Method :  <span>Bank</span></p>
+                <p class="bank_account">Account Bank : <span>${item.account}</span></p>
+            `
+        }
+        if(methodPay === 'paypal'){
+            xml += `
+                <p class="pay_method">Method :  <span>Paypal</span></p>
+                <p class="bank_account">Account Bank : <span>${item.account}</span></p>
+            `
+        }
+        if(methodPay === 'card'){
+            cardCustomer = JSON.parse(item.card)
+            xml += `
+                <p class="pay_method">Method :  <span>Credit Card</span></p>
+                <p class="bank_account">Name Card : <span> ${cardCustomer.name.toUpperCase()}</span></p>
+                <p class="bank_account">Account Card : <span> ${cardCustomer.cardNum}</span></p>
+                <p class="bank_account">Name Card : <span> ${cardCustomer.firstName} ${cardCustomer.lastName}</span></p>
+                <p class="bank_account">Date Card : <span> ${cardCustomer.date}</span></p>
+                <p class="bank_account">Date Card : <span> ${cardCustomer.cvc}</span></p>
+            `
+        }
+        return xml;
+    }
+%>
+
+
+
+

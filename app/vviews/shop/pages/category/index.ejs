@@ -1,0 +1,108 @@
+<%
+    const linkFolderSlider = 'uploads/slider/';
+    const linkFolderArticle = 'uploads/article/';
+    const linkFolderBranch = 'uploads/branch/';
+    const linkFolderBanner = 'uploads/banner/';
+%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb bg-blue">
+                <li><a href="#">Homepage</a></li>
+                <li><a href="#">Blog category</a></li>
+                <li class="active">This item</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="container">                        
+                <div class="row">
+                    <div class="col-md-8 col-lg-9 shop-items-set">
+                        <% include ./../../elements/popular %>
+                    </div>
+                    <div class="col-md-4 col-lg-3 asside">
+                        <div class="inblock sdw">
+                            <% include ./../../elements/searchHome %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<% include ./../../elements/subscribe %>
+
+<div class="container block">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    25 789
+                    <span>items sold</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    1 580
+                    <span>happy customers</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    987
+                    <span>items in store</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    12 580
+                    <span>what else</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">        
+    <div class="row">
+        <div class="clearfix">
+            <div class="substrate-wrap">
+                <div class="substrate parallax-block"
+                        data-speed-direction=".1"
+                        data-default-pos="-200"
+                        data-parallax-block="true">
+                    
+                    <div class="text text-dark">
+                        BRANDS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="container space-bottom">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="owl-carousel owl-default brands nav-bottom-right">
+                <% bbBranchItems.forEach( item =>{ %>
+                    <div class="img-item">
+                        <div class="wrap">
+                            <img src="<%= linkFolderBranch + item.thumb %>" alt="">
+                        </div>
+                    </div>
+                <% }) %> 
+            </div>
+        </div>
+    </div>
+</div>

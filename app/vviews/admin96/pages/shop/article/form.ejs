@@ -1,0 +1,51 @@
+<% include ./../../../helpers/selectbox %>
+<% include ./../../../helpers/input %>
+<% include ./../../../helpers/input-color-tag %>
+<% include ./../../../helpers/image %>
+<% include ./../../../helpers/textarea %>
+<% include ./../../../helpers/input-multi-image %>
+<% include ./../../../helpers/show-multi-image %>
+<% include ./../../../helpers/formBody %>
+
+<% 
+	const controllerName = 'article';
+	const linkPrefix = systemConfig.prefixAdmin + `/shop/${controllerName}/`;
+	const folder = 'uploads/article/';
+	let elementsForm = [
+		{ for: 'name', label: 'Product Name :', input: inputHelper('name', item.name ) },
+		{ for: 'title', label: 'Title :', input: inputHelper('title', item.title ) },
+		{ for: 'price', label: 'Price :', input: inputHelper('price', item.price ) },
+		{ for: 'size', label: 'Size :', input: inputColorHelper('size', item.size,'text','size' ) },
+		{ for: 'color', label: 'Color :', input: inputColorHelper('color',item.color,'text','color') },
+		{ for: 'ordering', label: 'Ordering :', input: inputHelper('ordering', item.ordering ) },
+		{ for: 'status', label: 'Status :', input: selectboxHelper('status', systemConfig.status_value, item.status) },
+		{ for: 'special', label: 'Special :', input: selectboxHelper('special', systemConfig.special_value, item.special) },
+		{ for: 'category_id', label: 'Category :', input: selectboxHelper('category_id', categoryItems, item.category_id) },
+		{ for: 'thumbs', label: 'Choose images:', input: inputMultiImageHelper('thumbs', showMultiImageHelper(folder, item.thumbs)) },
+		{ for: 'content', label: 'Content :', input:  textareaHelper('content', item.content ) },
+	];
+
+	let xhtmlForm = formBodyHelper(elementsForm);
+%>
+<div class="errors-notify"></div>
+<div class="card card-info card-outline">
+	<form action="#" method="POST" class="mb-0" enctype="multipart/form-data" name="form-upload" id="fileupload">
+		<div class="card-body">
+			<%- xhtmlForm %>
+		</div>
+		<div class="card-footer">
+			<div class="col-12 col-sm-8 offset-sm-2">
+				<input class="form-control" name="id" value="<%= item.id %>" type="hidden" >
+				<input class="form-control" name="slug" value="<%= item.slug %>" type="hidden">
+				<input class="form-control" name="category_name" type="hidden" value="<%= item.category_name %>"/>
+				<input class="form-control" name="category_slug" type="hidden" value="<%= item.category_slug %>"/>
+				<input class="form-control" id="linkPost" value="<%= linkPrefix %>" type="hidden" >
+				<button type="submit" id="uploadBtn" class="btn btn-sm btn-success mr-1"> Submit</button>
+				<a href="<%= linkPrefix %>" class="btn btn-sm btn-danger mr-1"> Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	CKEDITOR.replace( 'content' );
+</script>

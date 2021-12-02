@@ -1,0 +1,210 @@
+<%  
+    let arrMenu = [
+        {name: 'Dashboard', icon: 'fa-tachometer-alt', link: `${systemConfig.prefixAdmin}/dashboard`},
+        {name: 'Contact', icon: 'fa-tachometer-alt', link: `${systemConfig.prefixAdmin}/contact`},
+        ];
+    let arrMenuItems = [
+        {name: 'Items', icon: 'fa-users',
+            arrMenuInWeb: [
+                {name: 'Items', icon: 'fa-users', link: `${systemConfig.prefixAdmin}/items`},
+                {name: 'Groups', icon: 'fa-users', link: `${systemConfig.prefixAdmin}/groups`},
+                {name: 'Users', icon: 'fa-user', link: `${systemConfig.prefixAdmin}/users`},
+            ]
+        }
+    ]
+    let arrMenuNews = [
+        {name: 'News', icon: 'fa-newspaper',
+            arrMenuInWeb: [
+                {name: 'Categories', icon: 'fa-book-open', link: `${systemConfig.prefixAdmin}/news/categories`},
+                {name: 'News', icon: 'fa-file-alt', link: `${systemConfig.prefixAdmin}/news/article`},
+                {name: 'General News', icon: 'fa-rss', link: `${systemConfig.prefixAdmin}/rss`},
+            ]
+        }
+    ]
+    let arrMenushop = [
+        {name: 'Shop', icon: 'fa-store',
+            arrMenuInWeb: [
+                {name: 'Categories', icon: 'fa-link', link: `${systemConfig.prefixAdmin}/shop/categories`},
+                {name: 'Products', icon: 'fa-shopping-cart', link: `${systemConfig.prefixAdmin}/shop/article`},
+                {name: 'List Orders', icon: 'fa-shopping-cart', link: `${systemConfig.prefixAdmin}/shop/order`},
+                {name: 'Slider', icon: 'fa-file-image', link: `${systemConfig.prefixAdmin}/shop/slider`},
+                {name: 'Banner Ads', icon: 'fa-file-image', link: `${systemConfig.prefixAdmin}/shop/banner`},
+                {name: 'Branch', icon: 'fa-file-image', link: `${systemConfig.prefixAdmin}/shop/branch`},
+                {name: 'Subscribe', icon: 'fa-shopping-cart', link: `${systemConfig.prefixAdmin}/shop/subscribe`},
+                {name: 'Fee Shipping', icon: 'fa-shopping-cart', link: `${systemConfig.prefixAdmin}/shop/fee-shipping`},
+                {name: 'Promotion', icon: 'fa-shopping-cart', link: `${systemConfig.prefixAdmin}/shop/promotion`},
+            ]
+        }
+    ]
+
+    let xhtmlMenu = '';
+    let xhtmlMenuWeb = '';
+    let xhtmlMenuItems = '';
+    let xhtmlMenuNews = '';
+    let xhtmlMenushop = '';
+
+    arrMenu.forEach(menu => {
+        xhtmlMenu += `<li class="nav-item">
+                        <a href="${menu.link}" class="nav-link">
+                            <i class="nav-icon fas ${menu.icon}"></i>
+                            <p>${menu.name}</p>
+                        </a>
+                     </li>`;
+    });
+    
+    arrMenuItems.forEach(menu => {
+        xhtmlMenuItems += `<li class="nav-item"">
+                            <a href="#" class="nav-link"">
+                                <i class="nav-icon fas ${menu.icon}"></i>
+                                <p>${menu.name}<i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[0].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[0].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[0].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[1].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[1].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[1].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[2].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[2].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[2].name}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>`;
+    }); 
+
+    arrMenuNews.forEach(menu => {
+        xhtmlMenuNews += `<li class="nav-item"">
+                            <a href="#" class="nav-link"">
+                                <i class="nav-icon fas ${menu.icon}"></i>
+                                <p>${menu.name}<i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[0].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[0].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[0].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[1].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[1].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[1].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[2].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[2].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[2].name}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>`;
+    }); 
+
+    arrMenushop.forEach(menu => {
+        xhtmlMenushop += `<li class="nav-item"">
+                            <a href="#" class="nav-link"">
+                                <i class="nav-icon fas ${menu.icon}"></i>
+                                <p>${menu.name}<i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                 <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[0].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[0].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[0].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[1].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[1].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[1].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[2].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[2].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[2].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[3].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[3].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[3].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[4].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[4].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[4].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[5].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[5].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[5].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[6].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[6].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[6].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[7].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[7].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[7].name}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="${menu.arrMenuInWeb[8].link}" class="nav-link">
+                                        <i class="nav-icon fas ${menu.arrMenuInWeb[8].icon}"></i>
+                                        <p>${menu.arrMenuInWeb[8].name}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>`;
+    }); 
+%>
+
+<aside class="main-sidebar sidebar-dark-info elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="adminlte/images/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Admin Page</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="adminlte/images/default-user.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Admin ZendVN</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2" id="side-menu">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <%- xhtmlMenu %>
+                <%- xhtmlMenuItems %>
+                <%- xhtmlMenuNews %>
+                <%- xhtmlMenushop %>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

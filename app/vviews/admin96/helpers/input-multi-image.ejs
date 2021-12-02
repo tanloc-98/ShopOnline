@@ -1,0 +1,12 @@
+<% 
+    inputMultiImageHelper = (name, preview) => {
+        
+        return `<div class="files" id="${name}">
+                    <span class="btn btn-default btn-file">
+                        Browse  <input type="file" name="${name}" multiple />
+                    </span>
+                    <br>
+                    <ul class="fileList">${preview}</ul>
+                </div>`;
+    }
+%>

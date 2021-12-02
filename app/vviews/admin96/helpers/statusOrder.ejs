@@ -1,0 +1,19 @@
+<% 
+    helperStatusOrder = (listStatus,status,id,link) => {
+        let xhtmlStatus = '';
+        let linkChangeStatus = `${link}change-status/${id}/`
+        for(i=0;i < listStatus.length; i++){
+            if(listStatus[i].id === status){
+                xhtmlStatus = `<option value="${linkChangeStatus + listStatus[i].id}">${listStatus[i].name}</option>`
+            }
+        }
+        for(i=0;i < listStatus.length; i++){
+            if(listStatus[i].id !== status){
+                xhtmlStatus += `<option value="${linkChangeStatus + listStatus[i].id}">${listStatus[i].name}</option>`
+            }
+        }
+         
+        return `<select class="status_order" id="status_order">${xhtmlStatus}</select>`;
+    }
+%>
+

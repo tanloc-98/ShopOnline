@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="clearfix">
+            <div class="owl-carousel slideshow">
+            <% sliderItems.forEach(item => { %>
+                <div class="item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5 hidden-xs hidden-sm">
+                                <h2 class="header text-uppercase text-blue"><%= item.name %></h2>
+                                <p>
+                                    <%= item.title %>
+                                </p>
+                                <span class="btn-panel">
+                                        <span class="sdw-wrap">
+                                            <a href="" class="sdw-hover btn btn-lg btn-material btn-default"><span class="body">More info</span></a>
+                                            <span class="sdw"></span>
+                                        </span>
+                                        <span class="hor-divider"></span>
+                                        <span class="sdw-wrap">
+                                            <a href="shop-item.html" class="sdw-hover btn btn-lg btn-material btn-primary"><i class="icon icofont icofont-basket"></i><span class="body">Buy now</span></a>
+                                            <span class="sdw"></span>
+                                        </span> 
+                                </span>
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-7 col-md-offset-0">
+                                <div class="img">
+                                    <img src="<%= linkFolderSlider + item.thumb %>" alt="">
+                                </div>
+                                <span class="price hidden-xs">
+                                    <span class="wrap text-red">
+                                        $<%= item.price %>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

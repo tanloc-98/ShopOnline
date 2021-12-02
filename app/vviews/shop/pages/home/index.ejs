@@ -1,0 +1,172 @@
+<%
+    const linkFolderSlider = 'uploads/slider/';
+    const linkFolderArticle = 'uploads/article/';
+    const linkFolderBranch = 'uploads/branch/';
+    const linkFolderBanner = 'uploads/banner/';
+%>
+
+<% include ./../../elements/slideshow %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="clearfix">
+            <div class="substrate-wrap">
+                <div class="substrate parallax-block"
+                        data-speed-direction=".3"
+                        data-default-pos="-600"
+                        data-parallax-block="true">
+                    <div class="text text-darkness">
+                        IN TREND
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./../../elements/features %>
+
+<div class="container-fluid space-bottom space-bottom-shift">
+    <div class="row parallax-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="bnr-frame-top">
+                    &nbsp;
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="comp-header st-20 text-uppercase text-white">
+                                Winter 8989<br>
+                                <small>New collections</small>
+                            </span>
+                            <p>
+                                <span class="sdw-wrap">
+                                    <a href="/category" class="sdw-hover btn btn-material btn-yellow btn-lg ripple-cont">View New Collections</a>
+                                    <span class="sdw"></span>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="owl-carousel owl-default banner-brands nav-bottom-right nav-white">
+                            <% bwBranchItems.forEach(item =>{ %>
+                                <div class="item">
+                                    <img src="<%= linkFolderBranch + item.thumb %>" alt="">
+                                </div>
+                            <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bnr-frame-bottom">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+<div class="parallax bg-darkness opc-7"
+                data-parallax-image="shop/img/bg-01.jpg"
+                data-speed-direction="-.2"></div>
+    </div>
+</div>
+
+<div class="container-fluid block bg-grey-lightness space-top">
+    <div class="row">
+            <div class="container space-top">
+                <div class="row hidden-xs">
+                    <div class="col-xs-12 img-on-bg">
+                        <img src="shop/img/parallax-bg-popular-on-shop.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 asside">
+                        <div class="inblock sdw">
+                            <% include ./../../elements/searchHome %>
+                        </div>
+                        <div class="ads_banner">
+                            <% bannerItem.forEach(item =>{ %>
+                            <img src="<%= linkFolderBanner + item.thumb %>" >
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-9 shop-items-set shop-items-full">
+                        <% include ./../../elements/popular %>
+                    </div>
+                </div>
+            </div>
+            
+    </div><!-- / Parallax wrapper -->
+</div>
+
+
+
+<% include ./../../elements/subscribe %>
+
+<div class="container block">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    25 789
+                    <span>items sold</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    1 580
+                    <span>happy customers</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    987
+                    <span>items in store</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="counter">
+                <div class="wrap text-blue">
+                    12 580
+                    <span>what else</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">        
+    <div class="row">
+        <div class="clearfix">
+            <div class="substrate-wrap">
+                <div class="substrate parallax-block"
+                        data-speed-direction=".1"
+                        data-default-pos="-200"
+                        data-parallax-block="true">
+                    
+                    <div class="text text-dark">
+                        BRANDS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="container space-bottom">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="owl-carousel owl-default brands nav-bottom-right">
+                <% bbBranchItems.forEach( item =>{ %>
+                    <div class="img-item">
+                        <div class="wrap">
+                            <img src="<%= linkFolderBranch + item.thumb %>" alt="">
+                        </div>
+                    </div>
+                <% }) %> 
+            </div>
+        </div>
+    </div>
+</div>

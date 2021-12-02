@@ -1,0 +1,80 @@
+<% include ./../../helpers/format-date %>
+<% include ./../../helpers/format-summary %>
+<% const folder_uploads = 'uploads/article/'; %>
+
+<section class="blog_area single-post-area section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 posts-list">
+				<div class="single-post">
+					<div class="feature-img">
+						<img class="img_aricle" src="<%= folder_uploads + itemArticle[0].thumb %>" alt="">
+					</div>
+					<div class="blog_details">
+						<h2><%= itemArticle[0].name %>
+						</h2>
+						<ul class="blog-info-link mt-3 mb-4">
+						<li><i class="fa fa-user"></i><%= itemArticle[0].created.user_name %></li>
+						<li><i class="fa fa-clock"></i><%= formatDate(itemArticle[0].created.time) %></li>
+						<li><i class="fas fa-file-alt"></i><%= itemArticle[0].category.name %></li>
+						</ul>
+						<p class="excert">
+						<%- itemArticle[0].content %>
+						</p>
+						<div class="quote-wrapper">
+						<div class="quotes">
+							<%- itemArticle[0].content %>
+						</div>
+						</div>
+						<p>
+						<%- itemArticle[0].content %>
+						</p>
+					</div>
+				</div>
+				<div class="navigation-top">
+					<div class="d-sm-flex justify-content-between text-center">
+						<p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
+						people like this</p>
+						<div class="col-sm-4 text-center my-2 my-sm-0">
+						<!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+						</div>
+						<ul class="social-icons">
+						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+						<li><a href="#"><i class="fab fa-behance"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="navigation-top">
+					<div class="recent-wrapper mt-30">
+						<!-- section Tittle -->
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="section-tittle mb-30">
+									<h3>Bài viết liên quan</h3>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<% othersArticle.forEach(item =>{ %>
+								<div class="col-4">
+									<div class="what-img">
+										<img src="<%= folder_uploads + item.thumb %>" alt="" style="width:100%">
+									</div>
+									<div class="what-cap">
+										<p><i class="fa fa-clock"></i> <%= formatDate(item.created.time) %></p>
+										<h6><a href="#"><%= item.name %></a></h6>
+									</div>
+								</div>
+							<% }) %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% if(sildebar == true) {%>
+				<% include ./../../elements/sildebar %>
+			<% } %>
+		</div>
+	</div>
+</section>

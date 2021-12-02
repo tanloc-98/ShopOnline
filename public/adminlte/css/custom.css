@@ -1,0 +1,231 @@
+body {
+    font-family: 'Helvetica Neue', Roboto, 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+table.table.btn-table td {
+    vertical-align: middle;
+}
+
+#form-table th a {
+    color: #212529;
+}
+
+label.required::before {
+    content: ' * ';
+    color: red;
+}
+
+.mark,
+mark {
+    padding: 0;
+    background-color: yellow;
+}
+
+.badge:empty {
+    display: inline-block;
+    padding: 10px!important;
+}
+
+.ck-editor__editable {
+    min-height: 200px;
+}
+
+tr.my-read-only {
+    pointer-events: none; 
+    background-color: #dee2e6;
+}
+
+tr.my-read-only {
+    pointer-events: none; 
+    background-color: #dee2e6;
+}
+
+#bulk-apply {
+    position: relative;
+}
+
+#bulk-apply .navbar-badge {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    padding: 6px 8px;
+}
+
+.custom-select-sm {
+    font-size: 100%;
+}
+
+
+span.highlight {
+    background-color: #e5f421;
+}
+.img-avatar{
+    margin: 10px;
+    width: 250px;
+}
+.preview-img{
+    margin: 10px;
+    width: 150px;
+}
+li.active a{
+    background-color: #17a2b8;
+    color: #fff !important;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+} 
+td p{
+    margin-bottom: 5px;
+}
+.style-thumbs{
+    width:19%;
+    padding:0.5%;
+}
+
+.showImgMuti{
+    width: 240px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imgLayoutInfo{
+    width: 120px;
+    padding: 2px 0px 0px 2px;
+}
+.textLayoutProduct{
+    width: 245px;
+}
+.textLayoutProduct p{
+    white-space:normal!important;
+}
+.ordering{
+    width: 80px;
+}
+.imgLayoutInfoForm{
+    width: 25%;
+    position: relative;
+}
+.imgLayoutInfoForm img{
+    width: 100%;
+    padding: 4px;
+}
+
+
+.showImagesForm{
+    width: 198px;
+    padding: 10px;
+}
+.removeFile{
+    font-size: 16px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.files ul{
+    display: flex;
+    padding: 0px;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    border: 0.5px solid #ced4da;
+    margin-top: 10px;
+}
+ul.fileList li{
+    position: relative;
+    list-style-type: none;
+}
+ul.fileList li a i{
+    color: #212529;
+}
+ul.fileList li a i:hover{
+    color: red;
+    transition: 0.5s;
+}
+.orders{
+    font-size: 14px;
+    display: flex;
+    border-bottom: 0.5px solid grey;
+    margin-bottom: 5px;
+}
+.orders ul{
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.orders li span{
+    display: block;
+    color: #212529;
+}
+.orders li{
+    width: 50px;
+    color: orange;
+}
+.orders p{
+    display: flex;
+    align-items: center;
+}
+.orders li.name_oders{
+    width: 150px;
+}
+.results{
+    font-size: 14px;
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+}
+.results ul{
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+.results li{
+    color: orange;
+    margin-left: 20px;
+}
+
+.results li span{
+    color: #212529;
+}
+.code{
+    color: orange;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.code ul{
+    list-style-type: none;
+    padding: 0px;
+    margin-bottom: 5px;
+
+}
+.code li span{
+    color: #212529;
+}
+.pay_method,.bank_account{
+    color: orange;
+}
+.pay_method span{
+    color: #212529;
+}
+.bank_account span{
+    color: #212529;
+}
+.customer{
+    width: 250px;
+}
+.customer p{
+    color: orange;
+    font-size: 14px;
+}
+.customer span{
+    color: #212529;
+    white-space: normal!important;
+}
+.status_order{
+    width: 135px;
+    padding: 10px 10px;
+}

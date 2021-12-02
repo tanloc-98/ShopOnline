@@ -1,0 +1,32 @@
+<% 
+     helperSpanSubmitItem = (id,price,slug,display) => {
+        let inputVal = `
+                <input id="color-item" name="${display}-color-${id}" value="" hidden/>
+                <input id="size-item" name="${display}-size-${id}" value="" hidden/>
+        `
+        let spanSubmit = `
+            ${inputVal}
+            <span onclick="submitItem('${id}','${display}')" class="btn-material btn-price">
+                <span class="price">
+                    <span class="curr">
+                        $
+                    </span>
+                    <span class="price">
+                        ${price}
+                    </span>
+                </span>
+                <span class="icon-card">
+                    <i class="icofont icofont-cart-alt"></i>
+                </span>
+            </span>
+                <a href="javascript:void(0);" id="${id}" class="favorite-link favorite">
+                    <i class="icofont icofont-star"></i>
+                    to favorite
+                </a>
+                <a href="/shop/${slug}/${id}" class="more-link">More info</a>
+        
+        `
+        return spanSubmit;
+    } 
+%>
+

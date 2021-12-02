@@ -1,0 +1,98 @@
+<% include ./../helpers/colorItem %>
+<% include ./../helpers/sizeItem %>
+<% include ./../helpers/spanSubmit %>
+
+<div class="container block">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="block-header text-uppercase">
+                <h2 class="header">Features</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="owl-carousel owl-default features nav-top-left">
+                <% featuresItems.forEach( item => { %>
+                    <div class="shop-item hover-sdw timer"
+                            data-timer-date="2018, 2, 5, 0, 0, 0">
+                        <div class="wrap">
+                            <div class="body">
+                                <div class="comp-header st-4 text-uppercase">
+                                    <%= item.name %>
+                                    <span>
+                                        <%= item.category.name %>
+                                    </span>
+                                    <div class="rate">
+                                        <ul class="stars">
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="rate-info">
+                                            24 members rate it
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <img class="hover" src="<%= linkFolderArticle + item.thumbs[0]%>" alt="">
+                                    <img class="main" src="<%= linkFolderArticle + item.thumbs[1]%>" alt="">
+                                </div>
+                                <div class="caption">
+                                    <div class="rate">
+                                        <ul class="stars">
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li class="active">
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                            <li>
+                                                <i class="icofont icofont-star"></i>
+                                            </li>
+                                        </ul>
+                                        <div class="rate-info">
+                                            24 members
+                                            <span>like it</span>
+                                        </div>
+                                    </div>
+                                    <div class="info_item">
+                                        <div class="color-selecting">   
+                                            Color :<ul class="selecter"> <%- helperColorItem(item.id,item.color,'feature')%></ul>
+                                            <span id="<%= item.id %>-color-feature" class="error_color_item"></span>
+                                        </div>
+                                        <div class="info_size">
+                                        Size : <ul class="size_item"><%- helperSizeItem(item.id,item.size,'feature') %></ul>
+                                        <span id="<%= item.id %>-size-feature" class="error_size_item"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <%- helperSpanSubmitItem(item.id,item.price,item.slug,'feature')%>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>

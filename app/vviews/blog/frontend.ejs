@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+	<title>
+	<%= pageTitle %> 
+	<% if(titleCategory == true) {%>
+		- <%= itemCategory[0].name %>
+	<% } %>
+	<% if(titleArticle == true) {%>
+		- <%= itemArticle[0].name %>
+	<% } %>						
+	</title>
+	<head>
+		<% include ./elements/head %>
+	</head>
+	<body>
+		<% include ./elements/header %>
+		<main>
+			<!-- Start top-post Area -->
+			<% if(top_post == true) {%>
+				<% include ./elements/top_post %>
+			<% } %>
+			<!-- End top-post Area -->
+			
+			<!-- Start latest-post Area -->
+
+			<%- body %>	
+
+			<!-- End latest-post Area -->
+		<main>
+		<% include ./elements/footer %>
+		<% include ./elements/script %>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<% 
+    imageHelper = (folder, imageName, alt = "Image", className = "img-responsive img-avatar preview-avatar") => {
+        if(imageName == null || imageName == ""){ 
+            imageName = "preview-img.png";
+        }
+        return `<img class="${className}" src="${folder + imageName}" alt="${alt}" />`;
+    }
+
+    imageHelperUsers = (folder, imageName, alt = "Image", className = "img-responsive preview-avatar") => {
+        if(imageName == null || imageName == ""){ 
+            imageName = "preview-img.png";
+        }
+        return `<img class="${className}" src="${folder + imageName}" alt="${alt}" />`;
+    }
+
+    imagePreviewHelper = (folder, imageName, alt = "Image", className = "img-responsive preview-img") => {
+        if(imageName == null || imageName == ""){ 
+            imageName = "image-available.png";
+        }
+        return `<img class="${className}" src="${folder + imageName}" alt="${alt}" />`;
+    }
+%>
+
+
+
