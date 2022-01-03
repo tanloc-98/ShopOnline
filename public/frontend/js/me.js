@@ -36,15 +36,20 @@ $(document).ready(function(){
     });
 
     realTime()
+
+
     if(typeof(Storage) !== "undefined"){
-        for (i=0; i<localStorage.length; i++)  {  
-            key = localStorage.key(i);  
-            data =  JSON.parse(localStorage.getItem(key))
-            $("#data-" + data[0].category.slug).html(rederNewsBox(data));
-            $("a#" + key).addClass("active show")
-            $("div#" + key+ "-a").addClass("active show")
-            $("a#nav-home-tab").removeClass("active show")
-            $("div#nav-home").removeClass("active show")
+        if(localStorage.length >= 2){
+            for (i=0; i<localStorage.length; i++)  {  
+                key = localStorage.key(i);  
+                data =  JSON.parse(localStorage.getItem(key))
+                console.log(data);
+                $("#data-" + data[0].category.slug).html(rederNewsBox(data));
+                $("a#" + key).addClass("active show")
+                $("div#" + key+ "-a").addClass("active show")
+                $("a#nav-home-tab").removeClass("active show")
+                $("div#nav-home").removeClass("active show")
+            }
         }
     }else{
         $("a#nav-home-tab").addClass("active show")
