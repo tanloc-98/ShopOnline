@@ -1,9 +1,8 @@
 <%
     helperLinkImg = (link) => {
-     
+        
         let linkImg = [];
         let myRegex = /<img[^>]+src="(https:\/\/[^">]+)"/g;
-        
         linkImg = myRegex.exec(link);
         let xhtml = ``;
         if(linkImg !== null){

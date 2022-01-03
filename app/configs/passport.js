@@ -12,10 +12,8 @@ module.exports = function(passport){
                     return done(null, false, { message: notify.ERROR_LOGIN });
                 }else {
                     if(password !== user.password) {
-                        console.log('mat khau khong dung')
                         return done(null, { message: notify.ERROR_LOGIN_SHOP});
                     }else {
-                        console.log('dang nhap thanh cong')
                         return done(null, user);
                     }
                 }

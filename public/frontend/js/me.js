@@ -36,7 +36,6 @@ $(document).ready(function(){
     });
 
     realTime()
-
     if(typeof(Storage) !== "undefined"){
         for (i=0; i<localStorage.length; i++)  {  
             key = localStorage.key(i);  
@@ -66,6 +65,7 @@ function loadData(slug, url){
         $("#data-" + slug).html(rederNewsBox(data));
     }) 
 }
+
 function rederListCategory(items) {
     let xhtml = '';
     items.forEach( item =>{

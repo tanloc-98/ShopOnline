@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var RSSCombiner = require('rss-combiner');
+var fs = require('fs');
 var https = require('https');
+require('https').globalAgent.options.rejectUnauthorized = false;
 var parseString = require('xml2js').parseString;
 
 const contactConfig  = require(__path_configs + 'contact');
@@ -56,8 +58,7 @@ router.get('/', async (req, res, next) => {
     if (err) {
       console.error(err);
     } else {
-      const itemsNewsRss = combinedFeed.item().items
-      
+      const itemsNewsRss = combinedFeed.item().items;
         res.render(`${folderView}index`,{
           layout:layoutBlog,
           top_post:false,
@@ -71,11 +72,12 @@ router.get('/', async (req, res, next) => {
   });
 });
 
-router.get('/gold-coin', async (req, res, next) => {
-  
+
+router.get('/gold', async (req, res, next) => {
   var url  = "https://www.sjc.com.vn/xml/tygiavang.xml";
-  
+
   await xmlToJson(url, function(err, data){
+    
     let items = data.root.ratelist[0].city[0].item;
     res.json(items);
   })

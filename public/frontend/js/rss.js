@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#gold-price").load("tin-tong-hop/gold-coin",null, function(res, status){
+    $("#gold-price").load("tin-tong-hop/gold",null, function(res, status){
         let data = JSON.parse(res);
         $("#gold-price").html(rederGoldTable(data));
     })
