@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 
     if(typeof(Storage) !== "undefined"){
-        if(localStorage.length >= 2){
+        if(localStorage.length >= 1){
             for (i=0; i<localStorage.length; i++)  {  
                 key = localStorage.key(i);  
                 data =  JSON.parse(localStorage.getItem(key))
