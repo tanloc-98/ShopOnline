@@ -36,10 +36,7 @@ global.__path_uploads     = __path_public + pathConfig.folder_uploads + '/';
 const systemConfig = require(__path_configs + 'system');
 const databaseConfig = require(__path_configs + 'database');
 
-mongoose.connect(`mongodb+srv://locvan:locvan@cluster0.on03j.mongodb.net/test`);
-
-// mongoose.connect(`mongodb://${databaseConfig.username}:${databaseConfig.password}@ds117590.mlab.com:17590/${databaseConfig.database}`);
-
+mongoose.connect(`mongodb+srv://${databaseConfig.username}:${databaseConfig.password}@cluster0.on03j.mongodb.net/${databaseConfig.database}`);
 
 var app = express();
 app.use(cookieParser());

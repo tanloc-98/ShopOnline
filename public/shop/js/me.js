@@ -443,6 +443,9 @@ function updatePrice(){
 }
 
 function signUp(){
+    if(localStorage.getItem('user')){
+        $('.login_box').css('display', 'none');
+    }
     if(localStorage.getItem('user') !== null){
         let user = JSON.parse(localStorage.getItem('user'))
         renderLogin(user)

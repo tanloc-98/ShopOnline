@@ -1,8 +1,8 @@
 
 module.exports = {
-    username: 'hailan',
-    password: '123456',
-    database: 'training_nodejs',
+    username: 'locvan',
+    password: 'locvan',
+    database: 'test',
     col_items: 'items',
     col_groups: 'groups',
     col_users: 'users',

@@ -30,7 +30,7 @@ router.get('/logout', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   if(req.isAuthenticated()) res.redirect(linkIndex);
 
-  let item = {email:'', 'password':''};
+  let item = {'email':'', 'password':''};
   let errors = null;
 
   res.render(`${folderView}login`, { layout: layoutLogin, errors, item});
@@ -50,7 +50,6 @@ router.post('/login', function(req, res, next) {
   
   let item = Object.assign(req.body);
   let errors = req.validationErrors();
-
   if(errors){
     res.render(`${folderView}login`, { layout: layoutLogin, errors, item});
   }else{
