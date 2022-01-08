@@ -490,8 +490,8 @@ function renderLogin(user){
 }
 
 function renderFavorite(){
-    let user = JSON.parse(localStorage.getItem('user'))
-    if(user !== null){
+    let user = JSON.parse(localStorage.getItem('user'));
+    if(user){
         $('.favorite').each(function(){
             let arrayFavoriteId = user.favorite;
             let id  = $(this).attr('id')

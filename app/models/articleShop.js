@@ -89,6 +89,13 @@ module.exports = {
     getItem: (id, options = null) => {
         return MainModel.findById(id);
     },
+    getListItemById: (ids, options = null) => {
+        let newIds = []
+        for(i = 0; i < ids.length; i++){
+            newIds.push(ids[i].slice(1, -1));
+        }
+        return MainModel.find({ '_id': { $in: newIds } });
+    },
     getItemFrontEnd:(id, options = null) =>{
         return MainModel.findById(id).select('id name slug thumbs title price color size category content');
     },

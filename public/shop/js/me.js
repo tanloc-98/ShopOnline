@@ -2,6 +2,7 @@ var ITEM_PER_PAGE = 3;
 
 
 $(document).ready(function(){
+    signUp()
     activeMenu()
     loadData()
     renderHeaderUrl()
@@ -21,10 +22,162 @@ $(document).ready(function(){
     handleCheckOut()
     updatePrice()
     submitCodeCheckOrders()
-    signUp()
     renderFavorite()
     submitRegister()
 })
+
+function signUp(){
+    if(localStorage.getItem('user')){
+        $('.login_box').css('display', 'none');
+    }
+    if(localStorage.getItem('user') !== null){
+        let user = JSON.parse(localStorage.getItem('user'))
+        let favorite = user.favorite;
+        favorite = JSON.stringify(favorite).slice(1, -1);
+        if(favorite.length > 0){
+            $.post('http://localhost:6969/shop/favorite', {'favorite': favorite}, function(data){
+                let items = data;
+                let xml = '';
+                let linkFolderArticle = "/uploads/article/";
+                if(items.length > 0){
+                    items.forEach( item =>
+                        xml += `
+                        <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4 shop-item hover-sdw timer"
+                        data-timer-date="2018, 2, 5, 0, 0, 0">
+                            <div class="wrap">
+                                <div class="body">
+                                    <div class="comp-header st-4 text-uppercase">
+                                        ${item.name}
+                                        <span>
+                                            ${item.category.name}
+                                        </span>
+                                        <div class="rate">
+                                            <ul class="stars">
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                            </ul>
+
+                                            <div class="rate-info">
+                                                24 members rate it
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img class="hover" src="${linkFolderArticle + item.thumbs[0]}" alt="">
+                                        <img class="main" src="${linkFolderArticle + item.thumbs[1]}" alt="">
+                                    </div>
+                                    <div class="caption">
+                                        <div class="rate">
+                                            <ul class="stars">
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li class="active">
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="icofont icofont-star"></i>
+                                                </li>
+                                            </ul>
+                                            <div class="rate-info">
+                                                24 members
+                                                <span>like it</span>
+                                            </div>
+                                        </div>
+                                        <ul class="features">
+                                            <li>
+                                                <i class="icofont icofont-shield"></i>
+                                                <span>24 days. Money Back Guarantee</span>
+                                            </li>
+                                            <li>
+                                                <i class="icofont icofont-ship"></i>
+                                                <span>Free shipping</span>
+                                            </li>
+                                            <li>
+                                                <i class="icofont icofont-hand"></i>
+                                                <span>Free help and setup</span>
+                                            </li>
+                                        </ul>
+                                        <p class="text">
+                                            ${item.title}
+                                        </p>
+                                        <div class="info_item">
+                                            <div class="color-selecting">   
+                                                Color :<ul class="selecter"> ${helperColorItem(item._id,item.color,'popular')}</ul>
+                                                <span id="${item._id}-color-popular" class="error_color_item"></span>
+                                            </div>
+                                            <div class="info_size">
+                                                Size : <ul class="size_item">${helperSizeItem(item._id,item.size,'popular')}</ul>
+                                                <span id="${item._id}-size-popular" class="error_size_item"></span>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    ${helperSpanSubmitItem(item._id,item.price,item.slug,'popular')}
+                                </div>
+                            </div>
+                        </div>
+                        `
+                    )
+                }else{
+                    xml = `<p class="items_no_valid">Product Invalid!</p>`;
+                }
+                $('.item-favorite').html(xml);
+                renderFavorite()
+            })
+        }
+        renderLogin(user)
+    }
+    $('#login').click(function(){
+        let link = 'shop/auth/login';
+        let username = $('#account').val()
+        let password = $('#password').val()
+        if(username === '' && password === ''){
+            $('.error_name_login').text('Put your Account!')
+            $('.error_pass_login').text('Put your Password!')
+        }else{
+            $('.error_name_login').text('')
+            $('.error_pass_login').text('')
+            $.post(link,{'username':username, 'password':password}, function(data){
+                let err = data.message
+                let user = data
+                if(err){
+                    swal (err,"Enter To Continue!","error")
+                }else{
+                    localStorage.setItem('user', JSON.stringify({'username':user.username, 'avatar':user.avatar}))
+                    swal ("Log In Success","Enter To Continue!","success")
+                    renderLogin(user)
+                    location.replace(window.location)
+                }
+            })
+        }
+    })
+    $('#logout').click(function(){
+        localStorage.removeItem('user')
+        location.replace('/shop')
+    })
+}
+
 
 function loadData() {
     $.ajax({
@@ -44,7 +197,7 @@ function loadData() {
     })
 }
 
-function  paginationHelper(paginationObj, linkPrefix, currentStatus, keyword){
+function paginationHelper(paginationObj, linkPrefix, currentStatus, keyword){
     let totalItems          = paginationObj.totalItems;
     let totalItemsPerPage   = paginationObj.totalItemsPerPage;
     let totalPages          = Math.ceil(totalItems/totalItemsPerPage);
@@ -442,40 +595,3 @@ function updatePrice(){
     }
 }
 
-function signUp(){
-    if(localStorage.getItem('user')){
-        $('.login_box').css('display', 'none');
-    }
-    if(localStorage.getItem('user') !== null){
-        let user = JSON.parse(localStorage.getItem('user'))
-        renderLogin(user)
-    }
-    $('#login').click(function(){
-        let link = 'shop/auth/login';
-        let username = $('#account').val()
-        let password = $('#password').val()
-        if(username === '' && password === ''){
-            $('.error_name_login').text('Put your Account!')
-            $('.error_pass_login').text('Put your Password!')
-        }else{
-            $('.error_name_login').text('')
-            $('.error_pass_login').text('')
-            $.post(link,{'username':username, 'password':password}, function(data){
-                let err = data.message
-                let user = data
-                if(err){
-                    swal (err,"Enter To Continue!","error")
-                }else{
-                    localStorage.setItem('user', JSON.stringify({'username':user.username, 'avatar':user.avatar}))
-                    swal ("Log In Success","Enter To Continue!","success")
-                    renderLogin(user)
-                    location.replace(window.location)
-                }
-            })
-        }
-    })
-    $('#logout').click(function(){
-        localStorage.removeItem('user')
-        location.replace('/shop')
-    })
-}

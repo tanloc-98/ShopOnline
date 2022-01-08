@@ -71,3 +71,14 @@ nav li a.active{
 .about-area{
     margin-bottom: 40px;
 }
+.error_contact{
+    background-color: red;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: none;
+}
+.error_contact p{
+    color: white;
+    margin: 0px;
+}

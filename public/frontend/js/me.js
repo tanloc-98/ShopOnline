@@ -39,11 +39,10 @@ $(document).ready(function(){
 
 
     if(typeof(Storage) !== "undefined"){
-        if(localStorage.length >= 1){
+        if(localStorage.length > 0){
             for (i=0; i<localStorage.length; i++)  {  
                 key = localStorage.key(i);  
                 data =  JSON.parse(localStorage.getItem(key))
-                console.log(data);
                 $("#data-" + data[0].category.slug).html(rederNewsBox(data));
                 $("a#" + key).addClass("active show")
                 $("div#" + key+ "-a").addClass("active show")
@@ -60,6 +59,7 @@ $(document).ready(function(){
     $('a#nav-home-tab').click(function(){
         localStorage.clear();
     })
+    
 }) 
 
 function loadData(slug, url){

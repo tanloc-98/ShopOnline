@@ -13,6 +13,7 @@ router.use('/payment-method', require('./cartPaymethod'));
 router.use('/register', require('./register'));
 router.use('/check-out', require('./checkout'));
 router.use('/tracking', require('./tracking'));
+router.use('/favorite', require('./favorite'));
 router.use('/', require('./category'));
 router.use('/', require('./article'));
 

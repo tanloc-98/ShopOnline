@@ -9,8 +9,12 @@ const layoutShop    = __path_views_shop + 'shop';
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
+    let promoCode = []
+
+    await promotionModel.listCodePromotion().then(items => promoCode = items)
     res.render(`${folderView}index`,{
       layout:layoutShop,
+      promoCode
     })
 });
 

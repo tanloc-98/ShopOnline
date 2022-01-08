@@ -37,11 +37,10 @@ router.post('/save', async (req, res, next) => {
 	let item = Object.assign(req.body);
 	let errors = null
 	let contact = contactConfig;
-  errors = req.validationErrors();
-	let taskCurrent = 'add';
-
-	if(errors) { 
-        res.render(`${folderView}index`, {layout:layoutBlog, top_post:false, item, errors,contact});
+  	errors = req.validationErrors();
+	  let taskCurrent = 'add';
+	if(errors.length > 0) {
+        res.render(`${folderView}index`, {layout:layoutBlog,pageTitle:'Liên hệ',titleCategory:false,titleArticle:false, top_post:false, item, errors,contact});
 	} else {
 		MainModel.saveItem(item, {task: taskCurrent}).then( (result) => {
 			  NotifyHelpers.show(req, res, linkIndex, {task: 'add-contact-success'},contact);
