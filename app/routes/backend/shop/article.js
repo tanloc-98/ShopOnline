@@ -97,8 +97,8 @@ router.post('/delete', (req, res, next) => {
 
 router.post('/delete-img', async (req, res, next) => {
 	req.body = JSON.parse(JSON.stringify(req.body));
+	console.log(req.body);
 	let item = req.body;
-
 	await MainModel.deleteItem(null, {task:'delete-img'}, item).then((result) => {
 		res.json({'item': item, 'notify' : notify.DELETE_IMG_SUCCESS})
 	});

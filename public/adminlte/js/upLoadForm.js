@@ -10,7 +10,7 @@ $.fn.fileUploader = function (filesToUpload, sectionIdentifier) {
         var fileId = sectionIdentifier + fileIdCounter;
 
         var xml = `<li><img src="${tmppath}" class="showImagesForm">
-            <a class=\"removeFile\" data-fileid=\"" + fileId + "\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></li>`;      
+            <a class="removeFile" data-fileid="${fileId}"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></li>`;      
 
         filesToUpload.push({
             id: fileId,
@@ -50,7 +50,7 @@ $.fn.fileUploader = function (filesToUpload, sectionIdentifier) {
 
         var arrImgNew = valueImg.toString();
         $.ajax({
-            url: "adminCCC/store/article/delete-img",
+            url: "adminCCC/shop/article/delete-img",
             data: {'thumb' : nameImg, 'id' : pathName, 'thumbs' : arrImgNew},
             dataType: "JSON",
             type: "POST",
